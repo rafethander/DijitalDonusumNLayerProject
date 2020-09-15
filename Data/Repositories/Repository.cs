@@ -12,9 +12,9 @@ namespace Data.Repositories
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
     {
 
-        private readonly DbContext _context;
+        protected readonly DbContext _context;
         private readonly DbSet<TEntity> _dbset;
-        public Repository(DbContext context)
+        public Repository(AppDbContext context)
         {
             _context = context;
             _dbset = context.Set<TEntity>();

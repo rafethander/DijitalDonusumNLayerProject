@@ -66,6 +66,7 @@ namespace Service.Services
         public TEntity Update(TEntity entity)
         {
             TEntity updateEntity=_repository.Update(entity);
+            _unitOfWork.Commit();
             return updateEntity;
         }
 

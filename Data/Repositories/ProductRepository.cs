@@ -8,7 +8,10 @@ namespace Data.Repositories
 {
     public class ProductRepository : Repository<Product>, IProductRepository
     {
-        private AppDbContext appDbContext { get ; }//=> _context as AppDbContext
+        private AppDbContext appDbContext
+        {
+            get => _context as AppDbContext ;
+        }
         public ProductRepository(AppDbContext context):base(context)
         {
 

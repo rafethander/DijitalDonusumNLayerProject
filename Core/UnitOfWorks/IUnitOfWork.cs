@@ -10,7 +10,7 @@ namespace Core.UnitOfWorks
     {
         IProductRepository Product { get; }
         ICategoryRepository Category { get; }
-
+        IPersonRepository Person { get; }
         Task CommitAsync();
         void Commit();
     }

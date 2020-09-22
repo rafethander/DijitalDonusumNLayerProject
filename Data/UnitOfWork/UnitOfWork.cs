@@ -10,14 +10,17 @@ namespace Data.UnitOfWork
         private readonly AppDbContext _context;
         private ProductRepository _productRepository; 
         private CategoryRepository _categoryRepository;
+        private PersonRepository _personRepository;
         
         public UnitOfWork(AppDbContext appDbContext)
         {
             _context = appDbContext;
         }
-        public IProductRepository Product => _productRepository = _productRepository ?? new ProductRepository(_context);
+        public IProductRepository Product => _productRepository ??= new ProductRepository(_context);
 
         public ICategoryRepository Category => _categoryRepository = _categoryRepository ?? new CategoryRepository(_context);
+
+        public IPersonRepository Person => _personRepository = _personRepository ?? new PersonRepository(_context);
 
         public void Commit()
         {

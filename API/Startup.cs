@@ -35,6 +35,7 @@ namespace API
         {
             services.AddControllers();
 
+            
             services.AddDbContext<AppDbContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("SqlConStr")));
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
@@ -42,9 +43,17 @@ namespace API
             services.AddScoped(typeof(IService<>), typeof(Service<>));
             services.AddScoped(typeof(ICategoryService), typeof(CategoryService));
             services.AddScoped(typeof(IProductService), typeof(ProductService));
+            services.AddScoped(typeof(IPersonService), typeof(PersonService));
 
             //AutoMapper
             services.AddAutoMapper(typeof(Startup));
+
+
+            //Filter
+            services.Configure<ApiBehaviorOptions>(opt =>
+            {
+                opt.SuppressModelStateInvalidFilter = true;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

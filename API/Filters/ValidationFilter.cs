@@ -22,13 +22,15 @@ namespace API.Filters
 
                 IEnumerable<ModelError> modelErrors = context.ModelState.Values.SelectMany(v => v.Errors);
 
-                modelErrors.ToList().ForEach(x =>
+                modelErrors.ToList().ForEach(x => 
                 {
                     errorDto.Errors.Add(x.ErrorMessage);
                 });
 
                 context.Result = new BadRequestObjectResult(errorDto);
             }
+
+            base.OnActionExecuting(context);
         }
     }
 }

@@ -1,34 +1,35 @@
-﻿using API.Dtos;
-using AutoMapper;
+﻿using AutoMapper;
 using Core.Models;
+using MVC.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace API.Mapping
+namespace MVC.Mapping
 {
     public class MapProfile:Profile
     {
         public MapProfile()
         {
-            //Category nesnesi Category Dto ya dönüştür.
             CreateMap<Category, CategoryDto>();
-            //CategoryDto Categorye dönüştür.
             CreateMap<CategoryDto, Category>();
-
-            CreateMap<CategoryWithProductDto, Category>();
-            CreateMap<Category, CategoryWithProductDto>();
 
             CreateMap<Product, ProductDto>();
             CreateMap<ProductDto, Product>();
-            
+
+            CreateMap<Person, PersonDto>();
+            CreateMap<PersonDto, Person>();
+
+            CreateMap<CategoryWithProductDto, Category>();
+            CreateMap<Category, CategoryWithProductDto>();
 
             CreateMap<ProductWithCategoryDto, Product>();
             CreateMap<Product, ProductWithCategoryDto>();
 
             CreateMap<Person, PersonDto>();
             CreateMap<PersonDto, Person>();
+
         }
     }
 }

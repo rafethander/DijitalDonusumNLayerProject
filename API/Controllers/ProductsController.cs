@@ -1,4 +1,5 @@
 ﻿using API.Dtos;
+using API.Filters;
 using AutoMapper;
 using Core.Models;
 using Core.Services;
@@ -45,6 +46,7 @@ namespace API.Controllers
         }
 
         //POST: api/products
+        [ValidationFilter]
         [HttpPost]
         public async Task<IActionResult> Save(ProductDto productDto)
         {
